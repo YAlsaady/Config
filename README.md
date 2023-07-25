@@ -9,7 +9,7 @@ Config Files for my Arch Linux
 4. Zathura
 
 ## Setup
-´´´ sh
+``` sh
                    -`                    yaman@alsaady
                   .o+`                   _____________
                  `ooo/
