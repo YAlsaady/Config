@@ -4,9 +4,10 @@ Config Files for my Arch Linux
 
 ## Contents
 1. AwesomeWM
-2. Alacritty 
-3. Nvim
-4. Zathura
+1. Alacritty 
+1. Nvim
+1. Zathura
+1. Ranger
 
 ## Setup
 ``` sh
