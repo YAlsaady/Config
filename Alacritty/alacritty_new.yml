@@ -23,7 +23,7 @@
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
-window:
+#window:
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. Both lines and columns
@@ -46,9 +46,9 @@ window:
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  padding:
-   x: 6
-   y: 6
+  #padding:
+  #  x: 0
+  #  y: 0
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -68,8 +68,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 1.0
-  # opacity: 0.7
+  #opacity: 1.0
 
   # Startup Mode (changes require restart)
   #
@@ -86,7 +85,7 @@ window:
   #title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
-  dynamic_title: true
+  #dynamic_title: true
 
   # Window class (Linux/BSD only):
   #class:
@@ -95,74 +94,83 @@ window:
     # General application class
     #general: Alacritty
 
-  # Decorations theme variant (Linux/BSD only)
+  # Decorations theme variant
   #
-  # Override the variant of the GTK theme/Wayland client side decorations.
-  # Commonly supported values are `dark` and `light`. Set this to `None` to use
-  # the default theme variant.
+  # Override the variant of the System theme/GTK theme/Wayland client side
+  # decorations. Commonly supported values are `Dark`, `Light`, and `None` for
+  # auto pick-up. Set this to `None` to use the default theme variant.
   #decorations_theme_variant: None
 
-scrolling:
+  # Resize increments
+  #
+  # Prefer resizing window by discrete steps equal to cell dimensions.
+  #resize_increments: false
+
+  # Make `Option` key behave as `Alt` (macOS only):
+  #   - OnlyLeft
+  #   - OnlyRight
+  #   - Both
+  #   - None (default)
+  #option_as_alt: None
+
+#scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 50000
+  #history: 10000
 
   # Scrolling distance multiplier.
   #multiplier: 3
 
 # Font configuration
-font:
+#font:
   # Normal (roman) font face
-  normal:
+  #normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: DejaVuSansM Nerd Font
+    #family: monospace
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    #style: Regular
 
   # Bold font face
-  bold:
+  #bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: DejaVuSansM Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Bold
+    #style: Bold
 
   # Italic font face
-  italic:
+  #italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: DejaVuSansM Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Italic
+    #style: Italic
 
   # Bold italic font face
-  bold_italic:
+  #bold_italic:
     # Font family
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: DejaVuSansM Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Bold Italic
+    #style: Bold Italic
 
   # Point size
-  size: 09.0
+  #size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -386,16 +394,16 @@ font:
   # When set to `true`, selected text will be copied to the primary clipboard.
   #save_to_clipboard: false
 
-cursor:
+#cursor:
   # Cursor style
-  style:
+  #style:
     # Cursor shape
     #
     # Values for `shape`:
     #   - ▇ Block
     #   - _ Underline
     #   - | Beam
-    shape: Block
+    #shape: Block
 
     # Cursor blinking state
     #
@@ -412,7 +420,7 @@ cursor:
   # the style of the active value of the normal cursor.
   #
   # See `cursor.style` for available options.
-  vi_mode_style: Block
+  #vi_mode_style: None
 
   # Cursor blinking interval in milliseconds.
   #blink_interval: 750
@@ -452,9 +460,6 @@ cursor:
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
 #working_directory: None
-
-# Send ESC (\x1b) before characters when alt is pressed.
-#alt_send_esc: true
 
 # Offer IPC using `alacritty msg` (unix only)
 #ipc_socket: true
@@ -570,7 +575,7 @@ cursor:
 #    - Key0-Key9
 #
 #    A full list with available key codes can be found here:
-#    https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
+#    https://docs.rs/winit/*/winit/event/enum.VirtualKeyCode.html#variants
 #
 #    Instead of using the name of the keys, the `key` field also supports using
 #    the scancode of the desired key. Scancodes have to be specified as a
@@ -619,6 +624,7 @@ cursor:
 #   - Quit
 #       Quit Alacritty.
 #   - ToggleFullscreen
+#   - ToggleMaximized
 #   - SpawnNewInstance
 #       Spawn a new instance of Alacritty.
 #   - CreateNewWindow
@@ -762,7 +768,7 @@ cursor:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-key_bindings:
+#key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -773,13 +779,10 @@ key_bindings:
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
   # Vi Mode
-  - { key: Space,  mods: Shift, mode: ~Search,    action: ToggleViMode            }
+  #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
   #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
-  - { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
-  - { key: A,                           mode: Vi|~Search, action: ToggleViMode            }
-  - { key: I,      mods: Shift,         mode: Vi|~Search, action: ToggleViMode            }
-  - { key: A,      mods: Shift,         mode: Vi|~Search, action: ToggleViMode            }
+  #- { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
   #- { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: C,      mods: Control,       mode: Vi|~Search, action: ToggleViMode            }
   #- { key: Y,      mods: Control,       mode: Vi|~Search, action: ScrollLineUp            }
@@ -872,7 +875,7 @@ key_bindings:
   #- { key: M,              mods: Command,                    action: Minimize              }
   #- { key: Q,              mods: Command,                    action: Quit                  }
   #- { key: W,              mods: Command,                    action: Quit                  }
-  #- { key: N,              mods: Command,                    action: SpawnNewInstance      }
+  #- { key: N,              mods: Command,                    action: CreateNewWindow       }
   #- { key: F,              mods: Command|Control,            action: ToggleFullscreen      }
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
@@ -895,218 +898,14 @@ key_bindings:
   #   - Trace
   #log_level: Warn
 
+  # Renderer override.
+  #   - glsl3
+  #   - gles2
+  #   - gles2_pure
+  #renderer: None
+
   # Print all received window events.
   #print_events: false
 
   # Highlight window damage information.
-
-
-
- # The definition of color schemes.
-schemes:
-  gruvbox_material_hard_dark: &gruvbox_material_hard_dark
-    primary:
-      background: '0x1d2021'
-      foreground: '0xd4be98'
-    normal:
-      black:   '0x32302f'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
-    bright:
-      black:   '0x32302f'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
-  gruvbox_material_medium_dark: &gruvbox_material_medium_dark
-    primary:
-      background: '0x282828'
-      foreground: '0xd4be98'
-    normal:
-      black:   '0x3c3836'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
-    bright:
-      black:   '0x3c3836'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
-  gruvbox_material_soft_dark: &gruvbox_material_soft_dark
-    primary:
-      background: '0x32302f'
-      foreground: '0xd4be98'
-    normal:
-      black:   '0x45403d'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
-    bright:
-      black:   '0x45403d'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
-  gruvbox_material_hard_light: &gruvbox_material_hard_light
-    primary:
-      background: '0xf9f5d7'
-      foreground: '0x654735'
-    normal:
-      black:   '0x654735'
-      red:     '0xc14a4a'
-      green:   '0x6c782e'
-      yellow:  '0xb47109'
-      blue:    '0x45707a'
-      magenta: '0x945e80'
-      cyan:    '0x4c7a5d'
-      white:   '0xf2e5bc'
-    bright:
-      black:   '0x654735'
-      red:     '0xc14a4a'
-      green:   '0x6c782e'
-      yellow:  '0xb47109'
-      blue:    '0x45707a'
-      magenta: '0x945e80'
-      cyan:    '0x4c7a5d'
-      white:   '0xf2e5bc'
-  gruvbox_material_medium_light: &gruvbox_material_medium_light
-    primary:
-      background: '0xfbf1c7'
-      foreground: '0x654735'
-    normal:
-      black:   '0x654735'
-      red:     '0xc14a4a'
-      green:   '0x6c782e'
-      yellow:  '0xb47109'
-      blue:    '0x45707a'
-      magenta: '0x945e80'
-      cyan:    '0x4c7a5d'
-      white:   '0xeee0b7'
-    bright:
-      black:   '0x654735'
-      red:     '0xc14a4a'
-      green:   '0x6c782e'
-      yellow:  '0xb47109'
-      blue:    '0x45707a'
-      magenta: '0x945e80'
-      cyan:    '0x4c7a5d'
-      white:   '0xeee0b7'
-  gruvbox_material_soft_light: &gruvbox_material_soft_light
-    primary:
-      background: '0xf2e5bc'
-      foreground: '0x654735'
-    normal:
-      black:   '0x654735'
-      red:     '0xc14a4a'
-      green:   '0x6c782e'
-      yellow:  '0xb47109'
-      blue:    '0x45707a'
-      magenta: '0x945e80'
-      cyan:    '0x4c7a5d'
-      white:   '0xe6d5ae'
-    bright:
-      black:   '0x654735'
-      red:     '0xc14a4a'
-      green:   '0x6c782e'
-      yellow:  '0xb47109'
-      blue:    '0x45707a'
-      magenta: '0x945e80'
-      cyan:    '0x4c7a5d'
-      white:   '0xe6d5ae'
-
-  yaman: &yaman
-   # Default colors
-   primary:
-     background: '0x282828'
-     foreground: '0xebdbb2'
-
-   # Colors the cursor will use if `custom_cursor_colors` is true
-   # cursor:
-     text: '0x282828'
-     cursor: '0xebdbb2'
-   
-   # # Normal colors
-   # normal:
-   #   black:   '0x282828'
-   #   red:     '0xcc241d'
-   #   green:   '0x98971a'
-   #   yellow:  '0xd79921'
-   #   blue:    '0x458588'
-   #   magenta: '0xb16286'
-   #   cyan:    '0x689d6a'
-   #   white:   '0xebdbb2'
-   #
-   # # Bright colors
-   # bright:
-   #   black:   '0x89816d'
-   #   red:     '0xfabd2f'
-   #   green:   '0x1d2021'
-   #   yellow:  '0x928374'
-   #   blue:    '0x3c3c3c'
-   #   magenta: '0xebdbb2'
-   #   cyan:    '0xcf5c12'
-   #   white:   '0xa89984'
-  # Base16 oomox-gruvmox-dark-medium-default - alacritty color config
-  # oomox-gruvmox-dark-medium-default
-  oomax: &oomax
-    # Default colors
-    primary:
-      background: '0x282828'
-      foreground: '0xebdbb2'
-
-    # Colors the cursor will use if `custom_cursor_colors` is true
-    cursor:
-      text: '0x282828'
-      cursor: '0xebdbb2'
-    # Normal colors
-    normal:
-      black:   '0x282828'
-      red:     '0xcc241d'
-      green:   '0x98971a'
-      yellow:  '0xd79921'
-      blue:    '0x458588'
-      magenta: '0xb16286'
-      cyan:    '0x689d6a'
-      white:   '0xebdbb2'
-
-    # Bright colors
-    bright:
-      black:   '0x89816d'
-      red:     '0xfabd2f'
-      green:   '0x1d2021'
-      yellow:  '0x928374'
-      blue:    '0x3c3c3c'
-      magenta: '0xebdbb2'
-      cyan:    '0xcf5c12'
-      white:   '0xa89984'
-
-draw_bold_text_with_bright_colors: false
-# Apply the color scheme.
-custom_cursor_colors: true
-colors: *oomax
-# colors: *yaman 
-#highlight_damage: false
-scale_with_dpi: false
+  #highlight_damage: false
