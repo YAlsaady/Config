@@ -1,0 +1,18 @@
+#!/bin/sh
+
+TOGGLE=$HOME/.local/.screen
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    xrandr --output eDP1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off
+    echo 'awesome.restart()' | awesome-client
+    sleep 1s
+    notify-send -u low --icon=$HOME/.local/share/icons/Gruvbox/256x256/laptop_monitor.png "Two Monitor-mode is aktive"
+else
+    rm $TOGGLE
+    xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off
+    # xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off
+    echo 'awesome.restart()' | awesome-client
+    sleep 1s
+    notify-send -u low --icon=$HOME/.local/share/icons/Gruvbox/256x256/laptop.png "One Monitor-mode is aktive"
+fi
