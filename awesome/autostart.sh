@@ -8,13 +8,14 @@ function run {
 }
 
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-run udiskie
+run udiskie -f thunar
 # run udiskie -C -A -t -s --terminal='alacritty -e renger' -f 'thunar' 
 run nm-applet
 run owncloud
+# run nextcloud
 run ~/.script/xinput.sh
 run picom
-run feh --bg-scale --randomize --no-fehbg ~/Wallpaper1/Wallpaper/*
+run feh --bg-scale --randomize --no-fehbg ~/Media/Pictures/Wallpaper/*
 run xfce4-power-manager
 # run rm ~/.local/.screen
 # run whatsapp-nativefier

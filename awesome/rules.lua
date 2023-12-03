@@ -180,7 +180,9 @@ awful.rules.rules = {
 
         name = {
           "Screenshot",
-          "Event Tester",  -- xev.
+          "Event Tester",  -- xev.,
+          "HS Emden/Leer: Delta Robot",
+          "OS Customisation",
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
